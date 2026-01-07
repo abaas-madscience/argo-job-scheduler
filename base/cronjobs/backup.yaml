@@ -4,6 +4,7 @@ metadata:
   name: nightly-backup
 spec:
   schedule: "0 2 * * *"
+  suspend: false
   jobTemplate:
     spec:
       template:
