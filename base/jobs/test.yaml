@@ -1,0 +1,13 @@
+# base/jobs/test-job.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: gitops-test
+spec:
+  template:
+    spec:
+      containers:
+        - name: test
+          image: busybox:latest
+          command: ["echo", "Argo CD handled this Job in jobs-system!"]
+      restartPolicy: Never

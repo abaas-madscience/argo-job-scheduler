@@ -3,12 +3,14 @@ kind: Application
 metadata:
   name: cluster-jobs
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoUrl: https://github.com/abaas-madscience/argo-job-scheduler.git
-    targetRevision: HEAD
-    path: overlays/production # Points to the overlay
+    repoURL: https://github.com/abaas-madscience/argo-job-scheduler.git
+    targetRevision: main
+    path: base
   destination:
     server: https://kubernetes.default.svc
     namespace: jobs-system
